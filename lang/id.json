@@ -1,0 +1,13 @@
+{
+  "Email or password wrong": "Email atau Password yang anda masukkan salah",
+  "AUTH_REQUIRED": "Untuk mengakses halaman tersebut anda harus login",
+  "FIELD_REQUIRED": "{field} harus di isi",
+  "INVALID_EMAIL": "Format email tidak valid",
+  "EMAIL_EXISTS": "Email sudah terdaftar",
+  "FIELD_MIN": "{field} minimal {min} karakter",
+  "FIELD_CONFIRM": "Isi {confirm} tidak sama dengan {field}",
+  "UPDATE_SUCCESS": "Mengganti data {title} berhasil",
+  "DELETE_SUCCESS": "Berhasil menghapus data {title}",
+  "ID_NOT_FOUND": "ID tidak ditemukan",
+  "CREATE_SUCCESS": "Membuat data  berhasil"
+}

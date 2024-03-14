@@ -4,8 +4,18 @@
       <product></product>
     </v-col>
     <v-col cols="4" class="frame-content white ">
-      Orders
+      <order></order>
     </v-col>
   </v-row>
 </template>
 
+
+
+<script>
+export default ({
+  middleware: ['authenticated'],
+  head: {
+    title: 'App'
+  }
+})
+</script>

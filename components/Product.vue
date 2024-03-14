@@ -31,7 +31,9 @@
       <v-col v-for="(product, index) in filteredProducts" cols="2" :key="product.id">
         <v-card @click="addToCart(product.id)" :title="product.title">
           <v-card-actions>
-            <v-img :src="product.image" height="100" cover> </v-img>
+
+            <v-img v-for="(image, index) in product.thumbnails" :key="index" height="100" :src="image" cover> </v-img>
+
           </v-card-actions>
 
           <v-card-text align="center" class="product-title">
@@ -61,17 +63,17 @@ export default {
     ...mapActions({
       updateCategoryId: 'products/updateCategoryId',
       addToCart: 'carts/addToCart',
+      fetchProducts: 'products/fetchProducts',
+      fetchCategories: 'products/fetchCategories'
     }),
     resetSearchCategory() {
-      this.categoryId = false;
+      this.updateCategoryId(0);
     }
   },
   computed: {
     filteredProducts() {
       if (this.categoryId) {
-        return this.products.filter((s) => s.categoryId == this.categoryId);
-      } else if (this.selectedSearch) {
-        return this.products.filter((s) => s.title == this.selectedSearch.title);
+        return this.products.filter((product) => product.categoryId == this.categoryId);
       }
       return this.products;
     },
@@ -93,7 +95,17 @@ export default {
         });
       }, 1000);
     },
+    selectedSearch(product) {
+      if (product) {
+        this.addToCart(product.id);
+      }
+    }
   },
+
+  mounted() {
+    this.fetchProducts()
+    this.fetchCategories()
+  }
 };
 </script>
 
